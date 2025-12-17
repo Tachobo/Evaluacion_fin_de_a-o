@@ -92,10 +92,10 @@ const capturarSolicitud = (solicitudesExistentes) => {
     let valorValido = false; // Bandera de control para los bucles de validación.
 
     /* Bucle para el Identificador:
-    1. El 'while' asegura que el usuario ingrese un valor válido (número entero único).
-    2. El 'try' intenta convertir y validar la unicidad.
-    3. Si falla 'parseInt()' o 'validarDuplicidad()', el error pasa al 'catch'.
-    4. Si tiene éxito, 'valorValido = true' detiene el bucle. */
+    El 'while' asegura que el usuario ingrese un valor válido (número entero único).
+    El 'try' intenta convertir y validar la unicidad.
+    Si falla 'parseInt()' o 'validarDuplicidad()', el error pasa al 'catch'.
+    Si tiene éxito, 'valorValido = true' detiene el bucle. */
     while (!valorValido) {
         try {
             const input = parseFloat(prompt("1. Ingrese el identificador (numero entero): "));
@@ -109,9 +109,9 @@ const capturarSolicitud = (solicitudesExistentes) => {
     }
 
     /* Bucle para el Nombre:
-    1. Se reinicia 'valorValido' a 'false'.
-    2. La condición 'if' verifica que 'input' exista, sea 'string', y que '.trim().length > 0' (no solo espacios).
-    3. Si se cumple, se asigna el dato y se sale del bucle. */
+    Se reinicia 'valorValido' a 'false'.
+    La condición 'if' verifica que 'input' exista, sea 'string', y que '.trim().length > 0' (no solo espacios).
+    Si se cumple, se asigna el dato y se sale del bucle. */
     valorValido = false;
     while (!valorValido) {
         const input = prompt("2. Ingrese el nombre: ");
@@ -137,9 +137,9 @@ const capturarSolicitud = (solicitudesExistentes) => {
     }
 
     /* Bucle para la Prioridad:
-    1. Usa 'try/catch' para manejar errores de 'parseInt()'.
-    2. El 'if' evalúa tres condiciones obligatorias: que sea número, que sea entero, y que esté en el rango 0-10.
-    3. Si alguna de las condiciones es falsa, lanza un error que reinicia el bucle. */
+    Usa 'try/catch' para manejar errores de 'parseInt()'.
+    El 'if' evalúa tres condiciones obligatorias: que sea número, que sea entero, y que esté en el rango 0-10.
+    Si alguna de las condiciones es falsa, lanza un error que reinicia el bucle. */
     valorValido = false;
     while (!valorValido) {
         try {
@@ -210,24 +210,24 @@ export async function ejecutarEjercicio1(){
         /* Bloque try/catch: Este es el mecanismo de Manejo de Errores que permite que el programa no se detenga.
            Si una solicitud falla, el catch la registra y permite que el bucle continúe con la siguiente. */
         try {
-            // 1. Ejecutamos la validación síncrona final.
+            // Ejecutamos la validación síncrona final.
             validarDatosSolicitud(solicitud);
 
-            // 2. Control de Flujo: Rechazo Rápido.
+            // Control de Flujo: Rechazo Rápido.
             if (solicitud.estadoInicial === false) {
                 console.log("Solicitud rechazada: El estado es INACTIVO.");
                 continue; // 'continue' pasa inmediatamente al siguiente elemento del arreglo, ahorrando tiempo.
             }
 
-            // 3. Ejecutamos la función con Callback.
+            // Ejecutamos la función con Callback.
             analizarRequisitosConCallback(solicitud.requisitosCumplidos, (mensaje, total) => {
                 console.log(` ${mensaje} Requisitos cumplidos: ${total} de ${solicitud.requisitosCumplidos.length}.`);
             });
 
-            // 4. Uso de AWAIT: Espera el resultado del proceso asíncrono (Promesa).
+            // Uso de AWAIT: Espera el resultado del proceso asíncrono (Promesa).
             const resultado = await procesarAsincronoConPromesa(solicitud);
             
-            // 5. Salida de Éxito.
+            // Salida de Éxito.
             console.log(`APROBADA y PROCESADA: ${resultado}`);
 
         } catch (error) {

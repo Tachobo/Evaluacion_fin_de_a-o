@@ -163,8 +163,7 @@ export async function ejecutarEjercicio2(){
         }
     }
 
-    /* Resumen Final:
-    Muestra las estadísticas de la ejecución. */
+    /* Muestra las estadísticas de la ejecución. */
     console.log();
     console.log("RESUMEN FINAL");
     console.log();
