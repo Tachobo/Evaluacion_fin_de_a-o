@@ -1,25 +1,45 @@
-• Datos de prueba seleccionados
-Valor excedido: Ingresar un valor de 15000 (el máximo es 10000).
+Documento de Evaluación
 
-ID Impar (Fallo de servidor): Usar ID 103 o 107.
+Al finalizar la digitación de los datos de la operación, escriba s, cuando le pregunte si desea registrar otra, haga esto 4 veces, para hacer un total de 5 pruebas.
 
-Tipo con números: Escribir "Pago123" en el tipo de operación.
 
-• Justificación técnica de los datos
-El valor excedido prueba que los límites de dinero funcionen correctamente.
+Prueba 1:
 
-El ID impar es clave para ver si la "Promesa" del servidor funciona bien al rechazar la operación por falta de fondos.
+ID: 20
+Tipo: Venta
+Valor: 500
 
-El tipo con números verifica que el filtro de "solo letras" esté activo.
+Se espera que la operación sea aprobada, que el callback muestre el valor ajustado de 550 y que el servidor confirme la conexión exitosa tras 1.5 segundos.
 
-• Procedimiento de prueba paso a paso
-Ingresar una operación con valor 15000 y confirmar que el try/catch capture el error de rango.
 
-Ingresar una operación válida pero con ID impar (ej. 1).
+Prueba 2:
 
-Esperar 1.5 segundos y verificar que el sistema marque la operación como "RECHAZADA" por el servidor, pero que permita ver el Resumen Final al terminar.
+ID: 20
 
-• Resultados esperados
-Fallo: Mensajes como: "Valor fuera de rango" o "Servidor: Fondos insuficientes".
+Se espera que dé el siguiente mensaje de error: "ID ya registrado." y que pida el ingreso del ID de operación nuevamente.
 
-Éxito: Ajuste automático del valor (tasa del 10%) y mensaje de "Operación Aprobada".
+
+Prueba 3:
+
+ID: 44
+Tipo: Pago123
+
+Se espera que el sistema dé el siguiente mensaje de error: "Error: Solo se permiten letras." y que pida el tipo de operación nuevamente.
+
+
+Prueba 4:
+
+ID: 101
+Tipo: Compra
+Valor: 1000
+
+Al terminarse el programa al digitar todos los datos de la última solicitud, se espera que la consola diga lo siguiente: RECHAZADA: Servidor: Fondos insuficientes o error de conexión. (Esto sucede porque el ID es impar).
+
+
+Prueba 5:
+
+ID: 50
+Tipo: Inversion
+Valor: 15000
+
+Se espera que el sistema analice la consistencia y para la operación #50 diga lo siguiente: INVÁLIDA: Valor fuera de rango: máximo permitido 10000. Al finalizar, el resumen debe mostrar: Total Procesadas: 4 (si se saltó la inválida o se contó según el flujo), Aprobadas: 2, Rechazadas: 1, Inválidas: 1.
