@@ -33,7 +33,7 @@ ID: 101
 Tipo: Compra
 Valor: 1000
 
-Al terminarse el programa al digitar todos los datos de la última solicitud, se espera que la consola diga lo siguiente: RECHAZADA: Servidor: Fondos insuficientes o error de conexión. (Esto sucede porque el ID es impar).
+Al terminarse el programa al digitar todos los datos de la última solicitud, se espera que la consola diga lo siguiente: RECHAZADA: Servidor: Fondos insuficientes o error de conexión, esto para esta solicitud. (sucede porque el ID es impar).
 
 
 Prueba 5:
@@ -42,4 +42,4 @@ ID: 50
 Tipo: Inversion
 Valor: 15000
 
-Se espera que el sistema analice la consistencia y para la operación #50 diga lo siguiente: INVÁLIDA: Valor fuera de rango: máximo permitido 10000. Al finalizar, el resumen debe mostrar: Total Procesadas: 4 (si se saltó la inválida o se contó según el flujo), Aprobadas: 2, Rechazadas: 1, Inválidas: 1.
+Se espera que el sistema analice la consistencia y para la operación #50 diga lo siguiente: INVÁLIDA: Valor fuera de rango: máximo permitido 10000. 
