@@ -62,7 +62,7 @@ const capturarSolicitud = (existentes) => {
     s.rol = prompt("Rol solicitado (admin, editor, visitante): ").toLowerCase();
     
     // Captura de Arreglo de Permisos
-    console.log("Ingrese permisos separados por coma (ej: lectura,escritura):");
+    console.log("Ingrese permisos separados por coma (ej: lectura, escritura, borrado):");
     s.permisos = prompt("> ").toLowerCase().split(',').map(p => p.trim());
     
     s.aceptoCondiciones = prompt("¿Acepta condiciones? (s/n): ").toLowerCase() === 's';
